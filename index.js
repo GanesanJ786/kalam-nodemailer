@@ -32,7 +32,7 @@ route.post('/text-mail', (req, res) => {
         from: 'Adukalam Verification <adukalamapp@gmail.com>',
         to: to,
         subject: subject,
-        html: `<p style="font-size: 16px;">Hi <b>${ownerName}</b>, A new coach <b>${coachName}</b> is requesting to add in your academy. Please verify and approve.</p>
+        html: `<p style="font-size: 16px;">Hi <b>${ownerName}</b>, A new coach <b>${coachName}</b> is requesting to join in your academy. Please verify and approve.</p>
                 <br />
                <a href="https://kalam-in.web.app/login" style="background-color: orange;
                color: white;
