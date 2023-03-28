@@ -25,13 +25,23 @@ const transporter = nodemailer.createTransport({
 });
 
 route.post('/text-mail', (req, res) => {
-    const {to, subject, text } = req.body;
+    const {to, subject, ownerName, coachName } = req.body;
     const mailData = {
         from: 'Adukalam Verification <adukalamapp@gmail.com>',
         to: to,
         subject: subject,
-        text: text,
-        html: '<b>Hey there! </b><br> This is our first message sent with Nodemailer<br/>',
+        html: `<p style="font-size: 16px;">Hi <b>${ownerName}</b>, A new coach <b>${coachName}</b> is requesting to add in your academy. Please verify and approve.</p>
+                <br />
+               <a href="https://kalam-in.web.app/login" style="background-color: orange;
+               color: white;
+               padding: 14px 25px;
+               text-align: center;
+               text-decoration: none;
+               display: inline-block;"
+               target="_blank">
+               Click to approve
+               </a>
+            ` // email content in HTML
     };
 
     transporter.sendMail(mailData, (error, info) => {
